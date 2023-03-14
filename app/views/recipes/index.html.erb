@@ -1,4 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<% if user_signed_in? %> 
+ <div> Welcome <%= current_user.email %> </div> 
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+<% else %>
+  <%= button_to "Sign in", new_user_session_path %> 
+<% end %>
 
 <h1>Recipes</h1>
 
