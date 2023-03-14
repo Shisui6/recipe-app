@@ -106,16 +106,28 @@ body {
   color: #842029;
   border-radius: 10px;
   text-align: center;
+  visibility: hidden;
   font-size: 14px;
 }
 
 .notice {
   width: 20%;
-  margin: 0 auto;
+  left: 40%;
+  top: 40px;
+  position: absolute;
   padding: 10px;
   background-color: #d1e7dd;
   color: #0f5132;
   border-radius: 10px;
   text-align: center;
   font-size: 14px;
+  animation: slide 2s alternate;
+  transform: translateY(-100%);
+  z-index: -1;
+}
+
+@keyframes slide {
+  100% {
+    transform: translateY(0);
+  }
 }

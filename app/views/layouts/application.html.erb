@@ -14,14 +14,8 @@
   </head>
 
   <body>
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-
-    <header>
+    <% if user_signed_in? %>
+      <header>
       <div class="nav-links">
         <%= link_to "Public Recipies", id: "Home_btn" %>
         <%= link_to "Foods", foods_path, id: "Home_btn" %>
@@ -36,10 +30,15 @@
           <% end %>
         </div>
       </div>
-    </header>
-  <% flash.each do |key, value| %>
-    <p class="notification <%= key %>"><%= value %></p>
-  <% end %>
+      </header>
+    <% end %>
+
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
 
     <%= yield %>
   </body>
