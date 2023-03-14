@@ -1,26 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 /* ------------------ Application ----------------- */
 
 header {
-  display: flex;
-  height: 30px;
-  padding: 20px;
-  background-color: lightgray;
+  height: 50px;
   width: 100%;
-  align-items: center;
-  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 header a {
@@ -29,10 +13,32 @@ header a {
   cursor: pointer;
 }
 
-.nav-links {
-  width: 40%;
-  display: flex;
-  justify-content: space-between;
+header ul {
+  background-color: rgb(186, 185, 185);
+  list-style: none;
+  width: fit-content;
+  padding: 15px 30px;
+  margin: 0 auto;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+header li {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+header li a {
+  color: #fff;
+  transition: 0.3s;
+}
+
+header li a:hover {
+  color: #000;
+}
+
+header li:first-child {
+  margin-left: 0;
 }
 
 /* ------------------- Food -------------------- */
@@ -57,7 +63,8 @@ header a {
 }
 
 .foods-wrapper {
-  margin: 300px auto 0 auto;
+  margin: 0 auto;
+  padding: 0 20%;
 }
 
 #add_food_btn,

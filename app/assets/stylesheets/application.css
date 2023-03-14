@@ -57,7 +57,9 @@ body {
 
 .login-form input[type="email"],
 .login-form input[type="password"],
-.login-form input[type="text"] {
+.login-form input[type="text"],
+.login-form input[type="number"],
+textarea {
   width: 100%;
   margin: 10px 0;
   border: 2px solid #f6f3f0;
@@ -106,7 +108,6 @@ body {
   color: #842029;
   border-radius: 10px;
   text-align: center;
-  visibility: hidden;
   font-size: 14px;
 }
 
@@ -140,6 +141,7 @@ body {
 .empty img {
   width: 100px;
   height: 100px;
+  margin-bottom: 20px;
 }
 
 .center {
@@ -163,4 +165,40 @@ body {
 .new-recipe a {
   text-decoration: none;
   color: #fff;
+}
+
+.welcome {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  margin-bottom: 30px;
+}
+
+.welcome button {
+  background-color: #df121b;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.welcome button:hover {
+  background-color: #842029;
+}
+
+#recipe-form {
+  margin: 0 100px 70px 100px;
+  height: 100%;
+}
+
+.recipe {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 20px 100px;
+  border-radius: 15px;
+  padding: 10px 20px;
 }

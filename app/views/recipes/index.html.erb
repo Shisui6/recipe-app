@@ -1,5 +1,3 @@
-<h1>Welcome <%= current_user.name %></h1>
-
 <div class="center">
   <button class="new-recipe">
     <%= link_to "New recipe", new_recipe_path %>
@@ -15,9 +13,6 @@
   <div id="recipes">
     <% @recipes.each do |recipe| %>
       <%= render recipe %>
-      <p>
-        <%= link_to "Show this recipe", recipe %>
-      </p>
     <% end %>
   </div> 
 <% end %>

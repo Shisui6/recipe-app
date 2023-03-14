@@ -16,20 +16,17 @@
   <body>
     <% if user_signed_in? %>
       <header>
-      <div class="nav-links">
-        <%= link_to "Public Recipies", id: "Home_btn" %>
-        <%= link_to "Foods", foods_path, id: "Home_btn" %>
-        <%= link_to "Recipies", id: "Home_btn" %>
-      </div>
-      <div class="current_user_wrapper">
-        <div class="current_user_options">
-          <% if true %>
-            <%= button_to "Login", id: "log_in_btn" %>
-          <% else %>
-            <%= button_to "Logout", foods_path, method: :delete, id: "log_out_btn", class: "bg-red-800 text" %>
-          <% end %>
-        </div>
-      </div>
+        <ul>
+          <li>
+            <%= link_to "Public Recipes", id: "Home_btn" %>
+          </li>
+          <li>
+            <%= link_to "Foods", foods_path %>
+          </li>
+          <li>
+            <%= link_to "Recipes", recipes_path %>
+          </li>
+        </ul>
       </header>
     <% end %>
 
@@ -38,6 +35,13 @@
     <% end %>
     <% if alert %>
       <p class="alert"><%= alert %></p>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div class="welcome">
+        <h1>Hello <%= current_user.name %></h1>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete %> 
+        </div>
     <% end %>
 
     <%= yield %>
