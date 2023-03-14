@@ -1,34 +1,31 @@
-<p style="color: green"><%= notice %></p>
-
-<% if @current_user %>
-  <%= link_to "Add Food", new_food_path %>
-<% end %>
-
-<h1>Foods:</h1>
-
-<% if @foods.empty? %>
-  <p>There are no foods added currently</p>
-<% else %>
-  <div id="foods">
-  <table>
-    <thead>
-      <tr>
-        <td>Food</td>
-        <td>Measurement Unit</td>
-        <td>Unit Price</td>
-        <td>Action</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @foods.each do |food| %>
+<div class="foods-wrapper">
+  
+  <% if @current_user %>
+    <%= link_to "Add Food", new_food_path, id: "add_food_btn" %>
+  <% end %>
+  
+  <h1>Foods:</h1>
+  
+  <% if @foods.empty? %>
+    <p>There are no foods added currently</p>
+  <% else %>
+    <div id="foods">
+    <table>
         <tr>
-          <td><%= food.name %></td>
-          <td><%= food.measurement_unit %></td>
-          <td>$ <%= food.price %></td>
-          <td><%= button_to "Delete", food_path(food), method: :delete %><%= link_to "Edit", edit_food_path(food) %></td>
-      </tr>
-    </tbody>
-    <% end %>
-  </table>
-  </div>
-<% end %>
+          <th>Food</th>
+          <th>Measurement Unit</th>
+          <th>Unit Price</th>
+          <th>Action</th>
+        </tr>
+        <% @foods.each do |food| %>
+          <tr>
+            <td><%= food.name %></td>
+            <td><%= food.measurement_unit %></td>
+            <td>$ <%= food.price %></td>
+            <td><%= button_to "Delete", food_path(food), method: :delete %>  <%= link_to "Edit", edit_food_path(food) %></td>
+        </tr>
+      <% end %>
+    </table>
+    </div>
+  <% end %>
+</div>

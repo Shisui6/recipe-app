@@ -11,19 +11,26 @@
   </head>
 
   <body>
+
     <header>
       <div class="nav-links">
         <%= link_to "Public Recipies", id: "Home_btn" %>
         <%= link_to "Foods", foods_path, id: "Home_btn" %>
         <%= link_to "Recipies", id: "Home_btn" %>
       </div>
-        <div class="current_user_wrapper">
-          <div class="current_user_options">
+      <div class="current_user_wrapper">
+        <div class="current_user_options">
+          <% if true %>
+            <%= button_to "Login", id: "log_in_btn" %>
+          <% else %>
             <%= button_to "Logout", foods_path, method: :delete, id: "log_out_btn", class: "bg-red-800 text" %>
-          </div>
+          <% end %>
         </div>
-        <%= link_to "Login", id: "log_in_btn" %>
-  </header>
+      </div>
+    </header>
+  <% flash.each do |key, value| %>
+    <p class="notification <%= key %>"><%= value %></p>
+  <% end %>
 
     <%= yield %>
   </body>
