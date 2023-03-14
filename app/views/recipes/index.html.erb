@@ -1,19 +1,23 @@
-<% if user_signed_in? %> 
- <div> Welcome <%= current_user.email %> </div> 
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-<% else %>
-  <%= button_to "Sign in", new_user_session_path %> 
-<% end %>
+<h1>Welcome <%= current_user.name %></h1>
 
-<h1>Recipes</h1>
-
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
-  <% end %>
+<div class="center">
+  <button class="new-recipe">
+    <%= link_to "New recipe", new_recipe_path %>
+  </button>
 </div>
 
-<%= link_to "New recipe", new_recipe_path %>
+<% if @recipes.length.zero? %> 
+  <div class="empty">
+    <%= image_tag ("empty.png") %>
+    <h3>You don't have any recipes saved. Create a recipe to see it here</h3>
+  </div>
+<% else %>
+  <div id="recipes">
+    <% @recipes.each do |recipe| %>
+      <%= render recipe %>
+      <p>
+        <%= link_to "Show this recipe", recipe %>
+      </p>
+    <% end %>
+  </div> 
+<% end %>
