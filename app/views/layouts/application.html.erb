@@ -14,24 +14,26 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <header>
+    <header>
       <div class="nav-links">
-        <%= link_to "Public Recipies", id: "Home_btn" %>
-        <%= link_to "Foods", foods_path, id: "Home_btn" %>
-        <%= link_to "Recipies", id: "Home_btn" %>
+        <%= link_to "Public Recipies", root_path, id: "Home_btn" %>
+        <% if user_signed_in? %>
+          <%= link_to "Foods", foods_path, id: "Home_btn" %>
+          <%= link_to "Recipies", id: "Home_btn" %>
+        <% end %>
       </div>
       <div class="current_user_wrapper">
-        <div class="current_user_options">
-          <% if true %>
-            <%= button_to "Login", id: "log_in_btn" %>
-          <% else %>
-            <%= button_to "Logout", foods_path, method: :delete, id: "log_out_btn", class: "bg-red-800 text" %>
+        <div class="current_user_options">  
+          <% if user_signed_in?  %>
+            <%= button_to "Logout", destroy_user_session_path, method: :delete, id: "log_out_btn" %>
+          <% end %>
+
+          <% if !user_signed_in? && request.env['PATH_INFO'] != new_user_session_path  %>
+            <%= button_to "Login", new_user_session_path, id: "log_in_btn" %>
           <% end %>
         </div>
       </div>
       </header>
-    <% end %>
 
     <% if notice %>
       <p class="notice"><%= notice %></p>

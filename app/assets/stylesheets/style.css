@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -11,12 +13,16 @@ body {
   flex-direction: column;
 }
 
+.title {
+  font-size: 36px;
+}
+
 /* ------------------ Application ----------------- */
 
 header {
   display: flex;
   height: 30px;
-  padding: 20px;
+  padding: 20px 40px;
   background-color: lightgray;
   width: 100%;
   align-items: center;
@@ -30,9 +36,21 @@ header a {
 }
 
 .nav-links {
-  width: 40%;
+  width: 20%;
   display: flex;
   justify-content: space-between;
+}
+
+#log_in_btn,
+#log_out_btn {
+  border: none;
+  font-size: 1.2rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+#log_out_btn {
+  color: red;
 }
 
 /* ------------------- Food -------------------- */
@@ -57,7 +75,7 @@ header a {
 }
 
 .foods-wrapper {
-  margin: 300px auto 0 auto;
+  margin: 200px auto 0 auto;
 }
 
 #add_food_btn,
@@ -97,4 +115,46 @@ tr:nth-child(even) {
 
 #no_food_msg {
   margin-top: 20px;
+}
+
+/* ------------------------- Public recipes ---------------------- */
+
+.public_section {
+  margin: 150px auto 0 auto;
+}
+
+.public-recipes-holder {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recipe_link {
+  text-decoration: none;
+  color: initial;
+}
+
+.public_recipe {
+  padding: 30px;
+  background-color: rgb(150, 117, 69);
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.recipe-left-section {
+  font-size: 24px;
+  text-align: center;
+}
+
+.recipe-right-section {
+  font-size: 20px;
+}
+
+.public_recipe h3 {
+  font-size: 1.5em;
+  font-family: 'Lobster', cursive;
 }
