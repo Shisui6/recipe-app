@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.1'
+ruby '3.1.3'
 
 # Rubocop
 gem 'rubocop', '>= 1.0', '< 2.0'
@@ -32,6 +32,9 @@ gem 'jbuilder'
 
 # Devise
 gem 'devise'
+
+# CanCanCan
+gem 'cancancan'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
