@@ -47,6 +47,7 @@ header li:first-child {
 
 .food-form-wrapper {
   margin: auto;
+  padding: 0 30%;
 }
 
 .food-form form {
@@ -60,6 +61,7 @@ header li:first-child {
 
 .food-form input {
   padding: 5px;
+  width: 100%;
 }
 
 .foods-wrapper {
@@ -104,4 +106,47 @@ tr:nth-child(even) {
 
 #no_food_msg {
   margin-top: 20px;
+}
+
+/* ------------------------- Public recipes ---------------------- */
+
+.public_section {
+  padding: 0 20%;
+  margin: auto;
+}
+
+.public-recipes-holder {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recipe_link {
+  text-decoration: none;
+  color: initial;
+}
+
+.public_recipe {
+  padding: 30px;
+  background-color: rgb(150, 117, 69);
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.recipe-left-section {
+  font-size: 24px;
+  text-align: center;
+}
+
+.recipe-right-section {
+  font-size: 20px;
+}
+
+.public_recipe h3 {
+  font-size: 1.5em;
+  font-family: 'Lobster', cursive;
 }
