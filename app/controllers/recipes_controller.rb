@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.where(user_id: current_user.id)
+    @recipes = Recipe.includes(:user).where(user_id: current_user.id)
   end
 
   # GET /recipes/1 or /recipes/1.json
@@ -55,11 +55,23 @@ class RecipesController < ApplicationController
     end
   end
 
+  def public
+    @recipes = Recipe.includes(:user, recipe_foods: %i[quantity food]).where(public: true).order(created_at: :desc)
+    @costs = {}
+    @recipes.each do |recipe|
+      total = 0
+      recipe.recipe_foods.each do |recipe_food|
+        total += recipe_food.quantity * recipe_food.food.price
+      end
+      @costs[recipe] = total
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_recipe
-    @recipe = Recipe.find(params[:id])
+    @recipes = Recipe.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
