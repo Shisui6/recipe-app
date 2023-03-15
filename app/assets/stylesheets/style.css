@@ -47,6 +47,7 @@ header li:first-child {
 
 .food-form-wrapper {
   margin: auto;
+  padding: 0 30%;
 }
 
 .food-form form {
@@ -60,6 +61,7 @@ header li:first-child {
 
 .food-form input {
   padding: 5px;
+  width: 100%;
 }
 
 .foods-wrapper {
@@ -109,7 +111,8 @@ tr:nth-child(even) {
 /* ------------------------- Public recipes ---------------------- */
 
 .public_section {
-  margin: 150px auto 0 auto;
+  padding: 0 20%;
+  margin: auto;
 }
 
 .public-recipes-holder {

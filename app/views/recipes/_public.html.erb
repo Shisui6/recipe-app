@@ -4,8 +4,8 @@
     <p>by <strong><%= recipe.user.name %></strong></p>
   </div>
   <div class="recipe-right-section">
-    <p>Total food items: </p>
-    <p>Total price:</p>
+    <p>Total food items: <%= recipe.foods.count%></p>
+    <p>Total price: $ <%= cost %></p>
   </div>
 </div>
     

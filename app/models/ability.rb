@@ -27,7 +27,7 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
 
-    can :read, Recipe, public: true
+    can :public, Recipe, public: true
 
     return unless user.present?
 
