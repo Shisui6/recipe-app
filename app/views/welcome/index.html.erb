@@ -1,0 +1,14 @@
+<div class="experience">
+  <h1>Experience Recipe-App</h1>
+  <p>A Ruby on Rails project designed to help you keep track of all you favorite recipes. Go ahead and sign up to start saving recipes, making shopping lists and viewing recipes created by other users</p>
+  <div>
+    <button id="experience-login">
+      <%= link_to "Login", new_user_session_path %>
+    </button>
+    <button>
+      <%= link_to "Sign up", new_user_registration_path %>
+    </button>
+  </div>
+
+  <p class="experience-public">View public recipes <%= link_to "here", '/recipes/public' %></p>
+</div>

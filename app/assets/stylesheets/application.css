@@ -16,7 +16,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -185,10 +185,6 @@ textarea {
   cursor: pointer;
 }
 
-.welcome button:hover {
-  background-color: #842029;
-}
-
 #recipe-form {
   margin: 0 100px 70px 100px;
   height: 100%;
@@ -201,4 +197,81 @@ textarea {
   margin: 20px 100px;
   border-radius: 15px;
   padding: 10px 20px;
+}
+
+.experience {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/welcome.jpg");
+  background-size: cover;
+  color: #fff;
+  padding: 140px 150px 0;
+  text-align: center;
+}
+
+.experience h1 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.experience p {
+  margin-bottom: 50px;
+}
+
+.experience button {
+  background: none;
+  outline: none;
+  border: 2px solid #fff;
+  padding: 15px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.welcome button:hover {
+  background-color: #842029;
+}
+
+.experience button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.experience a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.experience-public a {
+  font-weight: bold;
+  color: #bf9240;
+}
+
+.experience button:hover a {
+  color: #000;
+}
+
+#experience-login {
+  margin-right: 20px;
+  background-color: #fff;
+}
+
+#experience-login a {
+  color: #000;
+}
+
+#experience-login:hover {
+  background: none;
+  color: #fff;
+}
+
+#experience-login:hover a {
+  color: #fff;
+}
+
+.experience-public {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
