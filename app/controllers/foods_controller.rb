@@ -19,8 +19,7 @@ class FoodsController < ApplicationController
 
   # POST /foods or /foods.json
   def create
-    @food = Food.new(user: current_user, name: food_params[:name], measurement_unit: food_params[:measurement_unit],
-                     quantity: food_params[:quantity], price: food_params[:price])
+    @food = Food.new(food_params.merge(user: current_user))
 
     respond_to do |format|
       if @food.save
