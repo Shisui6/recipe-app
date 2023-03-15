@@ -9,11 +9,8 @@
       <p>There are no recipes to see, try again later.</p>
     <% else %>
       <% @recipes.each do |recipe| %>
-        <a href=<%= recipe_path(recipe) %> class="recipe_link">
           <%= render partial: 'public', locals: { recipe: , cost: @costs[recipe] } %>
-        </a>
       <% end %>
     <% end %>
-
   </div>
 </section>

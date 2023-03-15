@@ -64,7 +64,8 @@ header li:first-child {
   width: 100%;
 }
 
-.foods-wrapper {
+.foods-wrapper,
+.shopping-wrapper {
   margin: 0 auto;
   padding: 0 20%;
 }
@@ -132,7 +133,9 @@ tr:nth-child(even) {
   background-color: rgb(150, 117, 69);
   display: flex;
   align-items: center;
+  position: relative;
   gap: 60px;
+  overflow: hidden;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
 }
@@ -144,9 +147,41 @@ tr:nth-child(even) {
 
 .recipe-right-section {
   font-size: 20px;
+  flex: 1;
 }
 
 .public_recipe h3 {
   font-size: 1.5em;
   font-family: 'Lobster', cursive;
+}
+
+.hidden_recipe_info {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  text-align: center;
+  transition: all 0.5s;
+  background-color: transparent;
+  color: white;
+  opacity: 0.5;
+}
+
+.hidden_recipe_info:hover {
+  height: 100%;
+  opacity: 0.9;
+  background: linear-gradient(black, rgba(255, 255, 255, 0));
+}
+
+.see_recipe_btn {
+  text-decoration: none;
+  color: initial;
+  background-color: green;
+  color: white;
+  border-radius: 15px;
+  padding: 10px 20px;
+  width: fit-content;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
 }
