@@ -31,6 +31,6 @@ class Ability
 
     return unless user.present?
 
-    can %i[create update destroy], Recipe, user:
+    can :manage, Recipe, user:
   end
 end
