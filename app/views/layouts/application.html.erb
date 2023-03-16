@@ -18,7 +18,7 @@
       <header>
         <ul>
           <li>
-            <%= link_to "Public Recipes", root_path %>
+            <%= link_to "Public Recipes", public_recipes_path %>
           </li>
           <li>
             <%= link_to "Foods", foods_path %>
@@ -41,7 +41,7 @@
       <div class="welcome">
         <h1>Hello <%= current_user.name %></h1>
         <%= button_to "Logout", destroy_user_session_path, method: :delete %> 
-        </div>
+      </div>
     <% end %>
 
     <%= yield %>

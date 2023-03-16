@@ -1,13 +1,21 @@
 <div id="<%= dom_id recipe %>" class="recipe">
   <div>
     <h2><%= recipe.name %></h2>
-    <%= link_to "View", recipe %>
-    <% if can? :destroy, recipe %>
-          <%= link_to "Remove", recipe_path(recipe.id), data: {
-                      turbo_method: :delete,
-                      turbo_confirm: "Are you sure?"
-                    } %>
-        <% end %>
+    <div class="recipe-links">
+      <a href=<%= recipe_path(recipe) %> id="recipe-open">
+        <i class="fa-solid fa-door-open"></i>
+      </a>
+      <% if can? :update, recipe %>
+        <a href=<%= edit_recipe_path(recipe) %> id="recipe-edit">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </a>
+      <% end %>
+      <% if can? :destroy, recipe %>
+        <a href=<%= recipe_path(recipe) %> data-turbo-method="delete" id="recipe-delete">
+          <i class="fa-solid fa-trash-can"></i>
+        </a>
+      <% end %>
+    </div>
   </div>
   <div>
     <p><%= recipe.description %></p>
