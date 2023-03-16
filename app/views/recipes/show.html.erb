@@ -1,10 +1,55 @@
-<p style="color: green"><%= notice %></p>
+<div class="recipe-show">
+  <h2><%= @recipe.name %></h2>
 
-<%= render @recipe %>
+  <div class="recipe-public">
+    <h3>Preparation time: <%= @recipe.preparation_time %> hours</h3>
+    <% if can? :update, @recipe %>
+      <%= form_with(model: @recipe) do |form| %>
+        <label class="switch">
+          <%= form.label :public %>
+          <%= form.check_box :public, onchange: 'this.form.submit();' %>
+          <span class="slider round"></span>
+        </label>
+      <% end %>
+    <% end %>
+  </div>
+  <h3>Cooking time: <%= @recipe.cooking_time %> hours</h3>
+  <p> <%= @recipe.description %> </p>
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
+  <div class="recipe-public">
+    <button>
+      <%= link_to "Generate shopping list", public_recipes_path %> 
+    </button>
+    <% if can? :update, @recipe %>
+      <button>
+        <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe) %> 
+      </button>
+    <% end %>
+  </div>
 
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+  <% if @foods.length.zero? %>
+    <div class="empty">
+      <%= image_tag ("empty.png") %>
+      <h3>No ingredients added yet. Added ingredients will appear here</h3>
+    </div>
+  <% else %>
+    <div id="foods">      
+      <table>
+          <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Value</th>
+            <th>Actions</th>
+          </tr>
+          <% @foods.each do |food| %>
+            <tr>
+              <td><%= Food.find(food.food_id).name %></td>
+              <td><%= food.quantity %></td>
+              <td>$ <%= food.quantity * Food.find(food.food_id).price %></td>
+              <td><%= button_to "Delete", recipe_recipe_food_path(@recipe, food), method: :delete %>  <%= link_to "Edit", edit_food_path(food) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+  <% end %>
 </div>
