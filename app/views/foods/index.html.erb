@@ -4,11 +4,11 @@
     <%= link_to "Add Food", new_food_path, id: "add_food_btn" %>
   <% end %>
   
-  <h1>Foods:</h1>
   
   <% if @foods.empty? %>
-    <p id="no_food_msg">There are no foods added currently</p>
+    <p class="no-foods-msg"><%= image_tag ("no-content.png"), id: 'no-content-img' %>There are no foods added currently</p>
   <% else %>
+  <h1>Foods:</h1>
     <div id="foods">
     <table>
         <tr>
@@ -24,7 +24,16 @@
             <td><%= food.measurement_unit %></td>
             <td><%= food.quantity %></td>
             <td>$ <%= food.price %></td>
-            <td><%= button_to "Delete", food_path(food), method: :delete %>  <%= link_to "Edit", edit_food_path(food) %></td>
+            <td>
+              <div class="food-actions">
+                <a href=<%= edit_food_path(food) %> id="food-edit">
+                  <i class="fa-regular fa-pen-to-square"></i> 
+                </a>
+                <a href=<%= food_path(food) %> data-turbo-method="delete" id="food-delete">
+                  <i class="fa-solid fa-trash-can"></i>
+                </a>
+              </div>
+            </td>
         </tr>
       <% end %>
     </table>

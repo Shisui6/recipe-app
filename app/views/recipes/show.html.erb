@@ -18,7 +18,7 @@
 
   <div class="recipe-public">
     <button>
-      <%= link_to "Generate shopping list", public_recipes_path %> 
+      <%= link_to "Generate shopping list", recipe_recipe_shopping_list_path(params[:id]) %> 
     </button>
     <% if can? :update, @recipe %>
       <button>
@@ -43,10 +43,19 @@
           </tr>
           <% @foods.each do |food| %>
             <tr>
-              <td><%= Food.find(food.food_id).name %></td>
+              <td><%= food.food.name %></td>
               <td><%= food.quantity %></td>
-              <td>$ <%= food.quantity * Food.find(food.food_id).price %></td>
-              <td><%= button_to "Delete", recipe_recipe_food_path(@recipe, food), method: :delete %>  <%= link_to "Edit", edit_food_path(food) %></td>
+              <td>$ <%= food.quantity * food.food.price %></td>
+              <td>
+              <div class="food-actions">
+                <a href=<%= edit_food_path(food) %> id="food-edit">
+                  <i class="fa-regular fa-pen-to-square"></i> 
+                </a>
+                <a href=<%= food_path(food) %> data-turbo-method="delete" id="food-delete">
+                  <i class="fa-solid fa-trash-can"></i>
+                </a>
+              </div>
+            </td>
             </tr>
           <% end %>
         </table>

@@ -104,8 +104,70 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#no_food_msg {
-  margin-top: 20px;
+.food-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.food-actions i {
+  cursor: pointer;
+}
+
+#food-delete {
+  color: red;
+  padding: 0 20px;
+  border-left: 1px solid black;
+}
+
+.back-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.back-icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-back-512.png');
+  background-size: cover;
+  transition: all 0.3s ease-in-out;
+}
+
+.back-text {
+  margin-left: 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+.back-button:hover {
+  border-color: #333;
+  color: #333;
+}
+
+.back-button:hover .back-icon {
+  transform: translateY(-50%) translateX(-5px);
+}
+
+.back-button:hover .back-text {
+  margin-left: 20px;
+}
+
+#show-food-btn {
+  margin-left: 10px;
+  border-left: 1px solid black;
+  padding: 0 10px;
+  text-decoration: none;
+  color: initial;
 }
 
 /* ------------------------- Public recipes ---------------------- */
@@ -116,27 +178,33 @@ tr:nth-child(even) {
 }
 
 .public-recipes-holder {
-  padding: 20px;
+  padding: 60px;
+  background-color: rgba(211, 211, 211, 0.493);
   display: flex;
+  border-radius: 40px;
   flex-direction: column;
   gap: 20px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.185);
 }
 
-.recipe_link {
+.recipe_link,
+#food-edit {
   text-decoration: none;
   color: initial;
 }
 
 .public_recipe {
   padding: 30px;
-  background-color: rgb(150, 117, 69);
+  background-color: rgba(150, 118, 69, 0.685);
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
   gap: 60px;
   overflow: hidden;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
+  box-shadow: 0 0 5px black;
 }
 
 .recipe-left-section {
@@ -146,7 +214,6 @@ tr:nth-child(even) {
 
 .recipe-right-section {
   font-size: 20px;
-  flex: 1;
 }
 
 .public_recipe h3 {
@@ -172,7 +239,6 @@ tr:nth-child(even) {
 
 .see_recipe_btn {
   text-decoration: none;
-  color: initial;
   background-color: green;
   color: white;
   border-radius: 15px;
@@ -181,4 +247,28 @@ tr:nth-child(even) {
   position: absolute;
   bottom: 5px;
   right: 10px;
+}
+
+/* ------------------------- Shopping list ---------------------- */
+
+.shopping-wrapper {
+  text-align: center;
+}
+
+.shopping-info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.no-foods-msg {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+#no-content-img {
+  width: 70px;
 }

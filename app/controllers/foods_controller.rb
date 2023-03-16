@@ -55,27 +55,28 @@ class FoodsController < ApplicationController
     end
   end
 
-  def shopping_list
-    @recipes = Recipe.includes(foods: [recipe_foods: [:quantity]]).where(user: current_user);
-    foods_obj = {}
+  def general_shopping_list
+    @all_foods = Food.all
+    @recipes = Recipe.includes(recipe_foods: [:food]).where(user: current_user)
+    @foods = {}
+    @total_cost = 0
+    @food_count = 0
     @recipes.each do |recipe|
-      recipe.foods.each do |food|
-        name = food.name
-        if foods_obj[name]
-          foods_obj[name]['quantity'] += food.recipe_foods.quantity
-          foods_obj[name]['price'] += food.price
+      recipe.recipe_foods.each do |recipe_food|
+        name = recipe_food.food.name
+        if @foods[name]
+          foods[name] += recipe_food.quantity
         else
-          foods_obj[name]['name'] = food.name
-          foods_obj[name]['quantity'] = food.recipe_foods.quantity
-          foods_obj[name]['price'] = food.price
+          @food_count += 1
+          @foods[name] = recipe_food.quantity
         end
       end
+      @total_cost += recipe.total_cost_calculator
     end
+  end
 
-    @list = []
-    Food.all.each do |food|
-      @list << foods_obj[food.name] if foods_obj[food.name]
-    end
+  def recipe_shopping_list
+    @recipe = Recipe.includes(recipe_foods: %i[food]).find_by(id: params[:recipe_id])
   end
 
   private
