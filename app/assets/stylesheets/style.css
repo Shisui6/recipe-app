@@ -164,13 +164,11 @@ tr:nth-child(even) {
   transition: all 0.5s;
   background-color: transparent;
   color: white;
-  opacity: 0.5;
 }
 
 .hidden_recipe_info:hover {
   height: 100%;
-  opacity: 0.9;
-  background: linear-gradient(black, rgba(255, 255, 255, 0));
+  background: linear-gradient(rgba(0, 0, 0, 0.596), rgba(0, 0, 0, 0.5));
 }
 
 .see_recipe_btn {
