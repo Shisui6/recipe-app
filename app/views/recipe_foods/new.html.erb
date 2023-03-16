@@ -15,20 +15,18 @@
     
       <div>
         <%= form.label :name, style: "display: block" %>
-        <%= form.select :food_id, @foods %>
+        <%= form.select :food_id, @foods, { :include_blank => '-- Select One --' }, :required => true %>
       </div>
     
       <div>
         <%= form.label :quantity, style: "display: block" %>
-        <%= form.number_field :quantity, placeholder: 'Quantity..' %>
+        <%= form.number_field :quantity, placeholder: 'Quantity..', :required => true %>
       </div>
     
       <div>
         <%= form.submit "Add ingredient" %>
       </div>
     <% end %>
-
-    <%= link_to "Back", recipe_path(@foods[1][1]) %> 
   </div>
   <div>
     <%= image_tag ("food.jpg") %>

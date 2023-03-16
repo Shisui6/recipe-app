@@ -43,9 +43,9 @@
           </tr>
           <% @foods.each do |food| %>
             <tr>
-              <td><%= Food.find(food.id).name %></td>
+              <td><%= Food.find(food.food_id).name %></td>
               <td><%= food.quantity %></td>
-              <td>$ <%= food.quantity * Food.find(food.id).price %></td>
+              <td>$ <%= food.quantity * Food.find(food.food_id).price %></td>
               <td><%= button_to "Delete", recipe_recipe_food_path(@recipe, food), method: :delete %>  <%= link_to "Edit", edit_food_path(food) %></td>
             </tr>
           <% end %>

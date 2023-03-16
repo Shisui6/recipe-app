@@ -95,6 +95,13 @@ select {
   padding-top: 30px;
 }
 
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
 #signup input {
   padding: 5px;
 }
@@ -230,6 +237,20 @@ select {
   transition: 0.3s;
 }
 
+.recipe-show button {
+  margin-bottom: 30px;
+}
+
+.recipe-public button {
+  background-color: #000;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
 .welcome button:hover {
   background-color: #842029;
 }
@@ -249,6 +270,18 @@ select {
   color: #bf9240;
 }
 
+.recipe a {
+  padding: 8px 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.recipe-public button a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .experience button:hover a {
   color: #000;
 }
@@ -256,6 +289,10 @@ select {
 #experience-login {
   margin-right: 20px;
   background-color: #fff;
+}
+
+.recipe-public button:hover a {
+  color: #000;
 }
 
 #experience-login a {
@@ -313,13 +350,6 @@ select {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
 /* The slider */
 .slider {
   position: absolute;
@@ -329,11 +359,11 @@ select {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-.slider:before {
+.slider::before {
   position: absolute;
   content: "";
   height: 26px;
@@ -341,8 +371,8 @@ select {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -353,7 +383,7 @@ input:focus + .slider {
   box-shadow: 0 0 1px #bf9240;
 }
 
-input:checked + .slider:before {
+input:checked + .slider::before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -364,7 +394,7 @@ input:checked + .slider:before {
   border-radius: 34px;
 }
 
-.slider.round:before {
+.slider.round::before {
   border-radius: 50%;
 }
 
@@ -374,27 +404,8 @@ input:checked + .slider:before {
   align-items: center;
 }
 
-.recipe-public button {
-  background-color: #000;
-  color: #fff;
-  outline: none;
-  border: none;
-  padding: 10px;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.recipe-public button a {
-  text-decoration: none;
-  color: #fff;
-}
-
 .recipe-public button:hover {
   background-color: #f6f3f0;
-  color: #000;
-}
-
-.recipe-public button:hover a {
   color: #000;
 }
 
@@ -406,17 +417,6 @@ input:checked + .slider:before {
 
 .recipe-show p {
   margin-bottom: 40px;
-}
-
-.recipe-show button {
-  margin-bottom: 30px;
-}
-
-.recipe a {
-  padding: 8px 10px;
-  border-radius: 50%;
-  text-decoration: none;
-  transition: 0.3s;
 }
 
 .recipe a i {
