@@ -1,13 +1,17 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: %i[show public]
   load_and_authorize_resource
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.includes(:user).where(user_id: current_user.id)
+    @recipes = Recipe.where(user_id: current_user.id).includes(:user)
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    @rc = RecipeFood.new
+    @foods = RecipeFood.where(recipe_id: @recipe.id)
+  end
 
   # GET /recipes/new
   def new

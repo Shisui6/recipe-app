@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   
-  root "recipes#public"
-  get "/shopping_list", to: "foods#shopping_list"
+  root "welcome#index"
 
   resources :foods
-  resources :recipes
+  resources :recipes do
+    resources :recipe_foods, only: %i[new create update destroy]
+  end
+
+  get '/public_recipes' => 'recipes#public'
 end

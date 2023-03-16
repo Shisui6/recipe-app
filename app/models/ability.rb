@@ -31,6 +31,6 @@ class Ability
 
     return unless user.present?
 
-    can :manage, Recipe, user:
+    can :manage, :all, user:
   end
 end
