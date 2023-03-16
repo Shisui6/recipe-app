@@ -65,7 +65,7 @@ class FoodsController < ApplicationController
       recipe.recipe_foods.each do |recipe_food|
         name = recipe_food.food.name
         if @foods[name]
-          foods[name] += recipe_food.quantity
+          @foods[name] += recipe_food.quantity
         else
           @food_count += 1
           @foods[name] = recipe_food.quantity

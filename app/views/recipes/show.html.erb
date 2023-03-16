@@ -39,23 +39,24 @@
             <th>Food</th>
             <th>Quantity</th>
             <th>Value</th>
-            <th>Actions</th>
+            <% if can? :update, @recipe %>
+              <th>Actions</th>
+            <% end %>
           </tr>
           <% @foods.each do |food| %>
             <tr>
               <td><%= food.food.name %></td>
               <td><%= food.quantity %></td>
               <td>$ <%= food.quantity * food.food.price %></td>
-              <td>
-              <div class="food-actions">
-                <a href=<%= edit_food_path(food) %> id="food-edit">
-                  <i class="fa-regular fa-pen-to-square"></i> 
-                </a>
-                <a href=<%= food_path(food) %> data-turbo-method="delete" id="food-delete">
-                  <i class="fa-solid fa-trash-can"></i>
-                </a>
-              </div>
-            </td>
+              <% if can? :update, @recipe %>
+                <td>
+                  <div class="food-actions">
+                    <a href=<%= recipe_recipe_food_path(food.recipe.id, food.id) %> data-turbo-method="delete" id="food-delete">
+                      <i class="fa-solid fa-trash-can"></i>
+                    </a>
+                  </div>
+                </td>
+              <% end %>
             </tr>
           <% end %>
         </table>
