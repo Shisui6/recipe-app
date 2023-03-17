@@ -1,0 +1,24 @@
+<div class="foods-wrapper">
+  <h3>Edit recipe food:</h3>
+              <%= form_with(model: @recipe_food, url: recipe_recipe_food_path, method: :put) do |form| %>
+  <table>
+            <tr>
+              <th>Food</th>
+              <th>Quantity</th>
+              <th>Actions</th>
+            </tr>
+            <tr>
+              <td><%= @recipe_food.food.name %></td>
+              <td>
+              <%= form.number_field :quantity, value: @recipe_food.quantity %>
+              </td>
+              <td>
+                <div class="food-actions">
+                <%= form.submit id: 'update-recipe_food-btn' %>
+                </div>
+              </td>
+              </tr>
+          </table>
+          <% end %>
+</div>
+<%= @recipe_food.quantity %>

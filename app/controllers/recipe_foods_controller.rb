@@ -5,13 +5,16 @@ class RecipeFoodsController < ApplicationController
   def new
     @recipe_food = RecipeFood.new
     @foods = []
+    @ids = RecipeFood.where(recipe_id: params[:recipe_id]).pluck(:food_id)
     Food.where(user: current_user).each do |f|
-      @foods << [f.name, f.id]
+      @foods << [f.name, f.id] unless @ids.include?(f.id)
     end
   end
 
   # GET /recipes/1/edit
-  def edit; end
+  def edit
+    @recipe_food = RecipeFood.includes(:food).find_by(id: params[:id])
+  end
 
   # POST /recipes or /recipes.json
   def create
@@ -29,9 +32,10 @@ class RecipeFoodsController < ApplicationController
 
   # PATCH/PUT /recipes/1 or /recipes/1.json
   def update
+    @recipe_food = RecipeFood.find_by(id: params[:id])
     respond_to do |format|
-      if @recipe.update(recipe_params)
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
+      if @recipe_food.update(recipe_food_params)
+        format.html { redirect_to recipe_url(params[:recipe_id]), notice: 'Recipe was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -60,6 +64,6 @@ class RecipeFoodsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recipe_food_params
-    params.require(:recipe_food).permit(:quantity, :food_id).merge(recipe: Recipe.find(params[:recipe_id]))
+    params.require(:recipe_food).permit(:quantity).merge(recipe: Recipe.find(params[:recipe_id]))
   end
 end

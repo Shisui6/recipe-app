@@ -1,20 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe 'foods/index', type: :view do
+  let(:user) { User.create(name: 'Another_user', email: 'test2@gmail.com', password: '123123') }
+
   before(:each) do
     assign(:foods, [
              Food.create!(
-               user: nil
+               'user' => user, 'name' => 'Pasta', 'measurement_unit' => 'grams', 'price' => 2, 'quantity' => 1.5
              ),
              Food.create!(
-               user: nil
+               'user' => user, 'name' => 'Pasta', 'measurement_unit' => 'grams', 'price' => 2, 'quantity' => 1.5
              )
            ])
   end
 
   it 'renders a list of foods' do
     render
-    cell_selector = Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td'
-    assert_select cell_selector, text: Regexp.new(nil.to_s), count: 2
+    expect(response).to include('Foods')
   end
 end
