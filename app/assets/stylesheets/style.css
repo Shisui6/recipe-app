@@ -330,3 +330,14 @@ footer {
   text-decoration: none;
   color: initial;
 }
+
+/* ------------------------ Recipe_food ------------------------- */
+
+#update-recipe_food-btn {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}

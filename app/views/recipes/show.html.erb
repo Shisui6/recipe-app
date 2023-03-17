@@ -51,7 +51,7 @@
               <% if can? :update, @recipe %>
                 <td>
                   <div class="food-actions">
-                    <a href=<%= recipe_recipe_food_path(food) %> id="food-edit">
+                    <a href=<%= edit_recipe_recipe_food_path(recipe_id: params[:id], id: food.id) %> id="food-edit">
                   <i class="fa-regular fa-pen-to-square"></i> 
                 </a>
                     <a href=<%= recipe_recipe_food_path(food.recipe.id, food.id) %> data-turbo-method="delete" id="food-delete">
