@@ -5,7 +5,7 @@
   </div>
   <div class="recipe-right-section">
     <p>Total food items: <%= recipe.foods.count%></p>
-    <p>Total price: $ <%= cost %></p>
+    <p>Total price: $ <%= recipe.total_cost_calculator %></p>
   </div>
   <div class="hidden_recipe_info">
     <p><%= recipe.description %></p>

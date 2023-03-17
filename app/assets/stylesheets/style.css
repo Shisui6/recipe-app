@@ -172,6 +172,41 @@ tr:nth-child(even) {
 
 /* ------------------------- Public recipes ---------------------- */
 
+.public-links {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  top: 10px;
+  right: 5px;
+}
+
+#login-btn,
+#signup-btn,
+#public-btn {
+  padding: 10px 20px;
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+  color: initial;
+  text-decoration: none;
+}
+
+#signup-btn {
+  padding-left: 10px;
+  border-left: 1px solid black;
+}
+
+#public-btn {
+  transition: all 0.3s;
+  border-right: 1px black solid;
+}
+
+#public-btn:hover {
+  color: burlywood;
+  background-color: black;
+  border-radius: 10px;
+}
+
 .public_section {
   padding: 0 20%;
   margin: auto;
@@ -179,6 +214,7 @@ tr:nth-child(even) {
 
 .public-recipes-holder {
   padding: 60px;
+  margin-top: 70px;
   background-color: rgba(211, 211, 211, 0.493);
   display: flex;
   border-radius: 40px;
@@ -271,4 +307,37 @@ tr:nth-child(even) {
 
 #no-content-img {
   width: 70px;
+}
+
+#unit {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: gray;
+}
+
+/* ------------------------ Footer ------------------------- */
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.profile-link {
+  cursor: pointer;
+  font-style: italic;
+  text-decoration: none;
+  color: initial;
+}
+
+/* ------------------------ Recipe_food ------------------------- */
+
+#update-recipe_food-btn {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
