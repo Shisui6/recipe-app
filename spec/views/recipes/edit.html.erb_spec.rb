@@ -10,7 +10,7 @@ RSpec.describe 'recipes/edit', type: :view do
       cooking_time: '9.99',
       description: 'MyText',
       public: false,
-      user: user
+      user:
     )
   end
 
