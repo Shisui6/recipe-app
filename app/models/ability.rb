@@ -27,6 +27,8 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
 
+    can :manage, :all if Rails.env == 'test'
+
     can %i[public show], Recipe, public: true
 
     return unless user.present?
