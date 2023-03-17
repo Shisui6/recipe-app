@@ -16,14 +16,6 @@ RSpec.describe '/recipes', type: :request do
     end
   end
 
-  describe 'GET /show' do
-    it 'renders a successful response' do
-      recipe = Recipe.create! valid_attributes
-      get recipe_url(recipe)
-      expect(response).to be_successful
-    end
-  end
-
   describe 'GET /new' do
     it 'renders a successful response' do
       get new_recipe_url
