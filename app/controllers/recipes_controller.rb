@@ -9,8 +9,11 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1 or /recipes/1.json
   def show
-    @rc = RecipeFood.new
-    @foods = RecipeFood.includes(:food, :recipe).where(recipe_id: @recipe.id)
+    if current_user.id == @recipe.user.id
+      @foods = RecipeFood.where(recipe_id: @recipe.id).includes(:recipe, :food)
+    else
+      @foods = RecipeFood.where(recipe_id: @recipe.id).includes(:food)
+    end
   end
 
   # GET /recipes/new
