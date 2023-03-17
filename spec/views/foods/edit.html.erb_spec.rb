@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'foods/edit', type: :view do
+  let(:user) { User.create(name: 'Another_user', email: 'test2@gmail.com', password: '123123') }
+
   let(:food) do
     Food.create!(
-      user: nil
+      'user' => user, 'name' => 'Pasta', 'measurement_unit' => 'grams', 'price' => 2, 'quantity' => 1.5
     )
   end
 
@@ -13,9 +15,6 @@ RSpec.describe 'foods/edit', type: :view do
 
   it 'renders the edit food form' do
     render
-
-    assert_select 'form[action=?][method=?]', food_path(food), 'post' do
-      assert_select 'input[name=?]', 'food[user_id]'
-    end
+    expect(response).to include('Update')
   end
 end

@@ -9,7 +9,7 @@ class Recipe < ApplicationRecord
   def total_cost_calculator
     @total_cost = 0
     recipe_foods.each do |recipe_food|
-      @total_cost += (recipe_food.quantity * recipe_food.food.price)/ recipe_food.food.quantity
+      @total_cost += (recipe_food.quantity * recipe_food.food.price) / recipe_food.food.quantity
     end
     @total_cost
   end

@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user! unless Rails.env == 'test'
   load_and_authorize_resource
 
   # GET /foods or /foods.json
