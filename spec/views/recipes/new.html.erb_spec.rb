@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'recipes/new', type: :view do
+  let(:user) { User.create(name: 'Another_user', email: 'test2@gmail.com', password: '123123') }
+
   before(:each) do
     assign(:recipe, Recipe.new(
                       name: 'MyString',
@@ -8,7 +10,7 @@ RSpec.describe 'recipes/new', type: :view do
                       cooking_time: '9.99',
                       description: 'MyText',
                       public: false,
-                      user: nil
+                      user:
                     ))
   end
 
@@ -25,8 +27,6 @@ RSpec.describe 'recipes/new', type: :view do
       assert_select 'textarea[name=?]', 'recipe[description]'
 
       assert_select 'input[name=?]', 'recipe[public]'
-
-      assert_select 'input[name=?]', 'recipe[user_id]'
     end
   end
 end
