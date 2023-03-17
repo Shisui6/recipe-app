@@ -9,7 +9,7 @@
       <p>There are no recipes to see, try again later.</p>
     <% else %>
       <% @recipes.each do |recipe| %>
-          <%= render partial: 'public', locals: { recipe: , cost: @costs[recipe] } %>
+          <%= render partial: 'public', locals: { recipe: } %>
       <% end %>
     <% end %>
   </div>

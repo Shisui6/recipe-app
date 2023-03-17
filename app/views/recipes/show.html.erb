@@ -47,10 +47,13 @@
             <tr>
               <td><%= food.food.name %></td>
               <td><%= food.quantity %></td>
-              <td>$ <%= food.quantity * food.food.price %></td>
+              <td>$ <%= (food.quantity * food.food.price) / food.food.quantity %></td>
               <% if can? :update, @recipe %>
                 <td>
                   <div class="food-actions">
+                    <a href=<%= recipe_recipe_food_path(food) %> id="food-edit">
+                  <i class="fa-regular fa-pen-to-square"></i> 
+                </a>
                     <a href=<%= recipe_recipe_food_path(food.recipe.id, food.id) %> data-turbo-method="delete" id="food-delete">
                       <i class="fa-solid fa-trash-can"></i>
                     </a>

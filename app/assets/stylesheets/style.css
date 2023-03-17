@@ -272,3 +272,9 @@ tr:nth-child(even) {
 #no-content-img {
   width: 70px;
 }
+
+#unit {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: gray;
+}

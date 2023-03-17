@@ -5,8 +5,9 @@ class RecipeFoodsController < ApplicationController
   def new
     @recipe_food = RecipeFood.new
     @foods = []
+    @ids = RecipeFood.where(recipe_id: params[:recipe_id]).pluck(:food_id)
     Food.where(user: current_user).each do |f|
-      @foods << [f.name, f.id]
+      @foods << [f.name, f.id] unless @ids.include?(f.id)
     end
   end
 

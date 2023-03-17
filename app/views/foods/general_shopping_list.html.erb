@@ -12,14 +12,14 @@
           <tr>
             <th>Food</th>
             <th>Quantity</th>
-            <th>Unit Price</th>
+            <th>Price</th>
           </tr>
           <% @all_foods.each do |food| %>
             <tr>
               <% if @foods[food.name] %>
                 <td><%= food.name %></td>
-                <td><%= @foods[food.name] %></td>
-                <td>$ <%= @foods[food.name] * food.price %></td>
+                <td><%= @foods[food.name] %> <span id="unit"><%= food.measurement_unit %></span></td>
+                <td>$ <%= (@foods[food.name] * food.price) / food.quantity %></td>
               <% end %>
           </tr>
         <% end %>
