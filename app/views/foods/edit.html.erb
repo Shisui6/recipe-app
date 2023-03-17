@@ -6,7 +6,9 @@
   <br>
   
   <div>
-    <%= link_to "Show this food", @food %> |
-    <%= link_to "Back to foods", foods_path %>
+    <a href= <%= foods_path %> class="back-button">
+      <span class="back-icon"></span>
+      <span class="back-text"><i class="fa-solid fa-utensils foods-btn"></i></span>
+    </a>
   </div>
 </div>

@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1 or /recipes/1.json
   def show
     @rc = RecipeFood.new
-    @foods = RecipeFood.where(recipe_id: @recipe.id)
+    @foods = RecipeFood.includes(:food).where(recipe_id: @recipe.id)
   end
 
   # GET /recipes/new
@@ -60,7 +60,7 @@ class RecipesController < ApplicationController
   end
 
   def public
-    @recipes = Recipe.includes(:user, recipe_foods: %i[quantity food]).where(public: true).order(created_at: :desc)
+    @recipes = Recipe.includes(:user, recipe_foods: %i[food]).where(public: true).order(created_at: :desc)
     @costs = {}
     @recipes.each do |recipe|
       total = 0

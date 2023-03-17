@@ -5,4 +5,12 @@ class Recipe < ApplicationRecord
 
   validates :name, :preparation_time, :cooking_time, :description, presence: true
   validates :preparation_time, :cooking_time, comparison: { greater_than_or_equal_to: 0 }
+
+  def total_cost_calculator
+    @total_cost = 0
+    recipe_foods.each do |recipe_food|
+      @total_cost += recipe_food.quantity * recipe_food.food.price
+    end
+    @total_cost
+  end
 end

@@ -1,4 +1,4 @@
-<div class="public_recipe">
+<div class="public_recipe" >
   <div class="recipe-left-section">
     <h3><%= recipe.name %></h3>
     <p>by <strong><%= recipe.user.name %></strong></p>
@@ -6,6 +6,10 @@
   <div class="recipe-right-section">
     <p>Total food items: <%= recipe.foods.count%></p>
     <p>Total price: $ <%= cost %></p>
+  </div>
+  <div class="hidden_recipe_info">
+    <p><%= recipe.description %></p>
+    <%= link_to "See recipe", recipe_path(recipe), class: "see_recipe_btn" %>
   </div>
 </div>
     

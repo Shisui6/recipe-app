@@ -1,5 +1,8 @@
 <div id="<%= dom_id recipe %>" class="recipe">
   <div>
+    <%= image_tag ("recipe.jpg") %>
+  </div>
+  <div class="recipe-desc">
     <h2><%= recipe.name %></h2>
     <div class="recipe-links">
       <a href=<%= recipe_path(recipe) %> id="recipe-open">
@@ -16,8 +19,7 @@
         </a>
       <% end %>
     </div>
-  </div>
-  <div>
+    <h5>Description</h5>
     <p><%= recipe.description %></p>
   </div>
 </div>

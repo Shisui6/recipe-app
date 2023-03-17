@@ -124,7 +124,7 @@ select {
 .notice {
   width: 20%;
   left: 40%;
-  top: 40px;
+  top: 35px;
   position: absolute;
   padding: 10px;
   background-color: #d1e7dd;
@@ -203,10 +203,31 @@ select {
 .recipe {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 20px 100px;
+  grid-template-columns: 0.7fr 1fr;
+  grid-template-rows: 200px;
+  gap: 30px;
+  margin: 20px 200px;
   border-radius: 15px;
-  padding: 10px 20px 20px;
+  padding: 15px;
+  border: 3px solid #bf9240;
+}
+
+.recipe-desc {
+  overflow-y: auto;
+}
+
+.recipe img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.recipe h2 {
+  color: #bf9240;
+}
+
+.recipe h5 {
+  margin-bottom: 0;
 }
 
 .experience {
@@ -445,4 +466,22 @@ input:checked + .slider::before {
 
 #recipe-delete:hover {
   background-color: #df121b;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dcdcdc;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

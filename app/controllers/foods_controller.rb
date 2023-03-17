@@ -55,6 +55,30 @@ class FoodsController < ApplicationController
     end
   end
 
+  def general_shopping_list
+    @all_foods = Food.all
+    @recipes = Recipe.includes(recipe_foods: [:food]).where(user: current_user)
+    @foods = {}
+    @total_cost = 0
+    @food_count = 0
+    @recipes.each do |recipe|
+      recipe.recipe_foods.each do |recipe_food|
+        name = recipe_food.food.name
+        if @foods[name]
+          @foods[name] += recipe_food.quantity
+        else
+          @food_count += 1
+          @foods[name] = recipe_food.quantity
+        end
+      end
+      @total_cost += recipe.total_cost_calculator
+    end
+  end
+
+  def recipe_shopping_list
+    @recipe = Recipe.includes(recipe_foods: %i[food]).find_by(id: params[:recipe_id])
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
