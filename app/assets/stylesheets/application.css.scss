@@ -1,0 +1,487 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "font-awesome";
+
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.login {
+  margin: 60px 100px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+}
+
+.login img {
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.login-form h2 {
+  font-size: 1.7rem;
+}
+
+.login-form form {
+  width: 70%;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"],
+.login-form input[type="text"],
+.login-form input[type="number"],
+textarea,
+select {
+  width: 100%;
+  margin: 10px 0;
+  border: 2px solid #f6f3f0;
+  padding: 10px;
+}
+
+.login-form input[type="submit"] {
+  background-color: black;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: #f6f3f0;
+  color: #000;
+}
+
+.login-remember {
+  display: flex;
+}
+
+#signup {
+  padding-top: 30px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#signup input {
+  padding: 5px;
+}
+
+#signup input[type="submit"] {
+  padding: 10px;
+}
+
+.alert {
+  width: 20%;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #f8d7da;
+  color: #842029;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.notice {
+  width: 20%;
+  left: 40%;
+  top: 35px;
+  position: absolute;
+  padding: 10px;
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  animation: slide 2s alternate;
+  transform: translateY(-100%);
+  z-index: -1;
+}
+
+@keyframes slide {
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.empty {
+  text-align: center;
+  padding-top: 100px;
+}
+
+.empty img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.center {
+  text-align: center;
+}
+
+.new-recipe {
+  background-color: #1d9d61;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.new-recipe:hover {
+  background-color: #0f5132;
+}
+
+.new-recipe a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.welcome {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  margin-bottom: 30px;
+}
+
+.welcome button {
+  background-color: #df121b;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#recipe-form {
+  margin: 0 100px 70px 100px;
+  height: 100%;
+}
+
+.recipe {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+  grid-template-rows: 200px;
+  gap: 30px;
+  margin: 20px 200px;
+  border-radius: 15px;
+  padding: 15px;
+  border: 3px solid #bf9240;
+}
+
+.recipe-desc {
+  overflow-y: auto;
+}
+
+.recipe img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.recipe h2 {
+  color: #bf9240;
+}
+
+.recipe h5 {
+  margin-bottom: 0;
+}
+
+.experience {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/welcome.jpg");
+  background-size: cover;
+  color: #fff;
+  padding: 140px 150px 0;
+  text-align: center;
+}
+
+.experience h1 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.experience p {
+  margin-bottom: 50px;
+}
+
+.experience button {
+  background: none;
+  outline: none;
+  border: 2px solid #fff;
+  padding: 15px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.recipe-show button {
+  margin-bottom: 30px;
+}
+
+.recipe-public button {
+  background-color: #000;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.welcome button:hover {
+  background-color: #842029;
+}
+
+.experience button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.experience a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.experience-public a {
+  font-weight: bold;
+  color: #bf9240;
+}
+
+.recipe a {
+  padding: 8px 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.recipe-public button a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.experience button:hover a {
+  color: #000;
+}
+
+#experience-login {
+  margin-right: 20px;
+  background-color: #fff;
+}
+
+.recipe-public button:hover a {
+  color: #000;
+}
+
+#experience-login a {
+  color: #000;
+}
+
+#experience-login:hover {
+  background: none;
+  color: #fff;
+}
+
+#experience-login:hover a {
+  color: #fff;
+}
+
+.experience-public {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.recipe-links {
+  display: flex;
+  justify-content: space-between;
+  width: 45%;
+  align-items: center;
+}
+
+.recipe-view {
+  border: 2px solid #bf9240;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+.recipe-show {
+  padding: 15px 50px;
+  box-shadow: 0 4px 8px 0 rgba(191, 146, 64, 0.5);
+  margin: 50px 90px 50px;
+  border-radius: 25px;
+}
+
+.recipe-show h2 {
+  text-align: center;
+  font-size: 35px;
+  color: #bf9240;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #bf9240;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #bf9240;
+}
+
+input:checked + .slider::before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+}
+
+.recipe-public {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe-public button:hover {
+  background-color: #f6f3f0;
+  color: #000;
+}
+
+.switch label {
+  position: relative;
+  right: 60px;
+  top: 7px;
+}
+
+.recipe-show p {
+  margin-bottom: 40px;
+}
+
+.recipe a i {
+  color: #fff;
+}
+
+#recipe-open {
+  border: 2px solid #bf9240;
+}
+
+#recipe-open:hover {
+  background-color: #bf9240;
+}
+
+#recipe-edit {
+  border: 2px solid #bab9b9;
+}
+
+#recipe-edit:hover {
+  background-color: #bab9b9;
+}
+
+#recipe-delete {
+  border: 2px solid #df121b;
+}
+
+#recipe-delete:hover {
+  background-color: #df121b;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dcdcdc;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -1,0 +1,344 @@
+/* ------------------ Application ----------------- */
+
+header {
+  height: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+header a {
+  text-decoration: none;
+  color: initial;
+  cursor: pointer;
+}
+
+header ul {
+  background-color: rgb(186, 185, 185);
+  list-style: none;
+  width: fit-content;
+  padding: 15px 30px;
+  margin: 0 auto;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+header li {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+header li a {
+  color: #fff;
+  transition: 0.3s;
+}
+
+header li a:hover {
+  color: #000;
+}
+
+header li:first-child {
+  margin-left: 0;
+}
+
+/* ------------------- Food -------------------- */
+
+/* Food form */
+
+.food-form-wrapper {
+  margin: auto;
+  padding: 0 30%;
+}
+
+.food-form form {
+  display: flex;
+  background-color: lightgray;
+  padding: 20px;
+  border-radius: 20px;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.food-form input {
+  padding: 5px;
+  width: 100%;
+}
+
+.foods-wrapper,
+.shopping-wrapper {
+  margin: 0 auto;
+  padding: 0 20%;
+}
+
+#add_food_btn,
+#create_food_btn input {
+  display: block;
+  text-decoration: none;
+  color: white;
+  width: fit-content;
+  background-color: green;
+  padding: 10px 20px;
+  border: none;
+  margin-left: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 5px black;
+}
+
+#add_food_btn:enabled {
+  box-shadow: 0 0 2px black;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.food-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.food-actions i {
+  cursor: pointer;
+}
+
+#food-delete {
+  color: red;
+  padding: 0 20px;
+  border-left: 1px solid black;
+}
+
+.back-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.back-icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-back-512.png');
+  background-size: cover;
+  transition: all 0.3s ease-in-out;
+}
+
+.back-text {
+  margin-left: 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+.back-button:hover {
+  border-color: #333;
+  color: #333;
+}
+
+.back-button:hover .back-icon {
+  transform: translateY(-50%) translateX(-5px);
+}
+
+.back-button:hover .back-text {
+  margin-left: 20px;
+}
+
+#show-food-btn {
+  margin-left: 10px;
+  border-left: 1px solid black;
+  padding: 0 10px;
+  text-decoration: none;
+  color: initial;
+}
+
+/* ------------------------- Public recipes ---------------------- */
+
+.public-links {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  top: 10px;
+  right: 5px;
+}
+
+#login-btn,
+#signup-btn,
+#public-btn {
+  padding: 10px 20px;
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+  color: initial;
+  text-decoration: none;
+}
+
+#signup-btn {
+  padding-left: 10px;
+  border-left: 1px solid black;
+}
+
+#public-btn {
+  transition: all 0.3s;
+  border-right: 1px black solid;
+}
+
+#public-btn:hover {
+  color: burlywood;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.public_section {
+  padding: 0 20%;
+  margin: auto;
+}
+
+.public-recipes-holder {
+  padding: 60px;
+  margin-top: 70px;
+  background-color: rgba(211, 211, 211, 0.493);
+  display: flex;
+  border-radius: 40px;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.185);
+}
+
+.recipe_link,
+#food-edit {
+  text-decoration: none;
+  color: initial;
+}
+
+.public_recipe {
+  padding: 30px;
+  background-color: rgba(150, 118, 69, 0.685);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 60px;
+  overflow: hidden;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: 0 0 5px black;
+}
+
+.recipe-left-section {
+  font-size: 24px;
+  text-align: center;
+}
+
+.recipe-right-section {
+  font-size: 20px;
+}
+
+.public_recipe h3 {
+  font-size: 1.5em;
+  font-family: 'Lobster', cursive;
+}
+
+.hidden_recipe_info {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  text-align: center;
+  transition: all 0.5s;
+  background-color: transparent;
+  color: white;
+}
+
+.hidden_recipe_info:hover {
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.596), rgba(0, 0, 0, 0.5));
+}
+
+.see_recipe_btn {
+  text-decoration: none;
+  background-color: green;
+  color: white;
+  border-radius: 15px;
+  padding: 10px 20px;
+  width: fit-content;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+}
+
+/* ------------------------- Shopping list ---------------------- */
+
+.shopping-wrapper {
+  text-align: center;
+}
+
+.shopping-info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.no-foods-msg {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+#no-content-img {
+  width: 70px;
+}
+
+#unit {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: gray;
+}
+
+/* ------------------------ Footer ------------------------- */
+
+footer {
+  position: relative;
+  top: 80px;
+  padding-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.profile-link {
+  cursor: pointer;
+  font-style: italic;
+  text-decoration: none;
+  color: initial;
+}
+
+/* ------------------------ Recipe_food ------------------------- */
+
+#update-recipe_food-btn {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}

@@ -1,0 +1,18 @@
+<div class="center">
+  <button class="new-recipe">
+    <%= link_to "New recipe", new_recipe_path %>
+  </button>
+</div>
+
+<% if @recipes.length.zero? %> 
+  <div class="empty">
+    <%= image_tag ("empty.png") %>
+    <h3>You don't have any recipes saved. Create a recipe to see it here</h3>
+  </div>
+<% else %>
+  <div id="recipes">
+    <% @recipes.each do |recipe| %>
+      <%= render recipe %>
+    <% end %>
+  </div> 
+<% end %>

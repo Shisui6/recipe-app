@@ -1,0 +1,14 @@
+<div class="food-form-wrapper">
+  <h1>New food</h1>
+  
+  <%= render "form", food: @food %>
+  
+  <br>
+  
+  <div>
+    <a href= <%= foods_path %> class="back-button">
+      <span class="back-icon"></span>
+      <span class="back-text">Back</span>
+    </a>
+  </div>
+</div>

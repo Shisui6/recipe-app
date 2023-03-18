@@ -1,0 +1,42 @@
+<div class="foods-wrapper">
+  
+  <% if @current_user %>
+    <%= link_to "Add Food", new_food_path, id: "add_food_btn" %>
+  <% end %>
+  
+  
+  <% if @foods.empty? %>
+    <p class="no-foods-msg"><%= image_tag ("no-content.png"), id: 'no-content-img' %>There are no foods added currently</p>
+  <% else %>
+  <h1>Foods:</h1>
+    <div id="foods">
+    <table>
+        <tr>
+          <th>Food</th>
+          <th>Measurement Unit</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+        <% @foods.each do |food| %>
+          <tr>
+            <td><%= food.name %></td>
+            <td><%= food.measurement_unit %></td>
+            <td><%= food.quantity %></td>
+            <td>$ <%= food.price %></td>
+            <td>
+              <div class="food-actions">
+                <a href=<%= edit_food_path(food) %> id="food-edit">
+                  <i class="fa-regular fa-pen-to-square"></i> 
+                </a>
+                <a href=<%= food_path(food) %> data-turbo-method="delete" id="food-delete">
+                  <i class="fa-solid fa-trash-can"></i>
+                </a>
+              </div>
+            </td>
+        </tr>
+      <% end %>
+    </table>
+    </div>
+  <% end %>
+</div>

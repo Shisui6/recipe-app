@@ -1,0 +1,28 @@
+<div class="shopping-wrapper">
+  <h2>Recipe shopping List:</h2>
+  <div class="shopping-info">
+    <p>Amount of food items to buy: <strong><%= @recipe.recipe_foods.count %></strong></p>
+    <p>Total value of food needed: $ <strong><%= @recipe.total_cost_calculator %></strong></p>
+  </div>
+
+  <% if @recipe.recipe_foods.empty? %>
+    <p class="no-foods-msg"><%= image_tag ("no-content.png"), id: 'no-content-img' %>There are no foods added for this recipe.</p>
+  <% else %>
+    <div id="foods">
+      <table>
+          <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+          <% @recipe.recipe_foods.each do |recipe_food| %>
+            <tr>
+              <td><%= recipe_food.food.name %></td>
+              <td><%= recipe_food.quantity %> <span id="unit"><%= recipe_food.food.measurement_unit %></span></td>
+              <td>$ <%= (recipe_food.quantity * recipe_food.food.price) / recipe_food.food.quantity %></td>
+          </tr>
+        <% end %>
+      </table>
+      </div>
+  <% end %>
+</div>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecipeApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+      <header>
+        <ul>
+          <li>
+            <%= link_to "Public Recipes", public_recipes_path %>
+          </li>
+          <li>
+            <%= link_to "Foods", foods_path %>
+          </li>
+          <li>
+            <%= link_to "Recipes", recipes_path %>
+          </li>
+           <li>
+            <%= link_to "Shopping List", general_shopping_list_path %>
+          </li>
+        <% end %>
+        </ul>
+      </header>
+      <% if !user_signed_in? && request.env['PATH_INFO'] != root_path %>
+        <div class="public-links">
+          <a href=<%= public_recipes_path %> id="public-btn">Public Recipe</a>
+          <a href=<%= new_user_session_path %> id="login-btn">Login <i class="fa-solid fa-door-open"></i></a>
+          <a href=<%= new_user_registration_path %> id="signup-btn">Sign up <i class="fa-solid fa-user-plus"></i></i></a>
+        </div>
+      <% end %>
+
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div class="welcome">
+        <h1>Hello <%= current_user.name %></h1>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete %> 
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+     <footer>Copyright all right reserved &copy Created by <a href="https://github.com/Shisui6" class="profile-link">Okemdi Udeh</a> & 
+        <a href="https://github.com/yonas44" class="profile-link">Yonas Tesfu</a></footer>
+  </body>
+</html>

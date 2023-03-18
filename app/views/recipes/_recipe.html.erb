@@ -1,0 +1,25 @@
+<div id="<%= dom_id recipe %>" class="recipe">
+  <div>
+    <%= image_tag ("recipe.jpg") %>
+  </div>
+  <div class="recipe-desc">
+    <h2><%= recipe.name %></h2>
+    <div class="recipe-links">
+      <a href=<%= recipe_path(recipe) %> id="recipe-open">
+        <i class="fa-solid fa-door-open"></i>
+      </a>
+      <% if can? :update, recipe %>
+        <a href=<%= edit_recipe_path(recipe) %> id="recipe-edit">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </a>
+      <% end %>
+      <% if can? :destroy, recipe %>
+        <a href=<%= recipe_path(recipe) %> data-turbo-method="delete" id="recipe-delete">
+          <i class="fa-solid fa-trash-can"></i>
+        </a>
+      <% end %>
+    </div>
+    <h5>Description</h5>
+    <p><%= recipe.description %></p>
+  </div>
+</div>
