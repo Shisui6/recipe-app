@@ -70,7 +70,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://recipe-app-wa4s.onrender.com)
+- [Live Demo Link](https://recipe-app-y0o7.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
