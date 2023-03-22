@@ -189,22 +189,13 @@ tr:nth-child(even) {
   width: fit-content;
   color: initial;
   text-decoration: none;
+  transition: 0.3s;
 }
 
-#signup-btn {
-  padding-left: 10px;
-  border-left: 1px solid black;
-}
-
-#public-btn {
-  transition: all 0.3s;
-  border-right: 1px black solid;
-}
-
+#signup-btn:hover,
+#login-btn:hover,
 #public-btn:hover {
   color: burlywood;
-  background-color: black;
-  border-radius: 10px;
 }
 
 .public_section {

@@ -232,7 +232,7 @@ select {
 
 .experience {
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/welcome.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), image-url("welcome.jpg");
   background-size: cover;
   color: #fff;
   padding: 140px 150px 0;
